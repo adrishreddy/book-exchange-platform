@@ -29,6 +29,7 @@ const Dashboard = () => {
       user,
       book.user,
       book.id,
+      book.title,
       deliveryMethod || "Mail",
       `${exchangeDuration || ""} days`
     ).then(() => {

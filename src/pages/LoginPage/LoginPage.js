@@ -7,12 +7,12 @@ const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const { login } = useAuth();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    setLoading(true);
+    // setLoading(true);
     setError("");
 
     if (
@@ -25,7 +25,7 @@ const LoginPage = () => {
       setError("Invalid username or password.");
     }
 
-    setLoading(false);
+    // setLoading(false);
   };
 
   return (
@@ -57,7 +57,7 @@ const LoginPage = () => {
             Login
           </button>
         </form>
-        {loading ? "Logging in..." : "Login"}
+        {/* {loading ? "Logging in..." : "Login"} */}
       </div>
     </div>
   );

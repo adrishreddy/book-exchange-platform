@@ -25,27 +25,30 @@ const TransactionsList = () => {
   } = useRejectExchangeRequest();
 
   useEffect(() => {
-    if (fetchedTransactions) {
-      const pendingTransactions = fetchedTransactions.filter(
-        (transaction) => transaction.status === "pending"
-      );
-
-      const sortedPendingTransactions = [...pendingTransactions].sort(
-        (a, b) => new Date(b.lastModified) - new Date(a.lastModified)
-      );
-
-      const nonPendingTransactions = fetchedTransactions.filter(
-        (transaction) => transaction.status !== "pending"
-      );
-
-      const sortedTransactions = [
-        ...sortedPendingTransactions,
-        ...nonPendingTransactions,
-      ];
-
-      setTransactions(sortedTransactions);
-    }
+    setTransactions(fetchedTransactions);
   }, [fetchedTransactions]);
+  // useEffect(() => {
+  //   if (fetchedTransactions) {
+  //     const pendingTransactions = fetchedTransactions.filter(
+  //       (transaction) => transaction.status === "pending"
+  //     );
+
+  //     const sortedPendingTransactions = [...pendingTransactions].sort(
+  //       (a, b) => new Date(b.lastModified) - new Date(a.lastModified)
+  //     );
+
+  //     const nonPendingTransactions = fetchedTransactions.filter(
+  //       (transaction) => transaction.status !== "pending"
+  //     );
+
+  //     const sortedTransactions = [
+  //       ...sortedPendingTransactions,
+  //       ...nonPendingTransactions,
+  //     ];
+
+  //     setTransactions(sortedTransactions);
+  //   }
+  // }, [fetchedTransactions]);
 
   const handleAccept = async (transactionId) => {
     await acceptExchangeRequest(transactionId);

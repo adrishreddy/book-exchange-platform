@@ -5,11 +5,12 @@ const useExchangeRequest = () => {
   const [buttonText, setButtonText] = useState('Send Request');
   const [error, setError] = useState(null);
 
-  const sendExchangeRequest = async (senderId, recipientId, bookId, deliveryMethod, exchangeDuration) => {
+  const sendExchangeRequest = async (senderId, recipientId, bookId, bookName, deliveryMethod, exchangeDuration) => {
     const requestBody = {
       senderId,
       recipientId,
       bookId,
+      bookName,
       deliveryMethod,
       exchangeDuration,
     };
