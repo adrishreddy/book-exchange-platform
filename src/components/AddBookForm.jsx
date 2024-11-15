@@ -1,12 +1,12 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "state";
 import { useAddBook } from "hooks";
-import { editFormStyles as styles } from 'styles';
+import { editFormStyles as styles } from "styles";
 
 const AddBookForm = ({ onAddBook, onCancel }) => {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
-  const [genre, setGenre] = useState(""); 
+  const [genre, setGenre] = useState("");
   const [condition, setCondition] = useState("");
   const [available, setAvailable] = useState(true);
   const { user } = useContext(AuthContext);
@@ -27,7 +27,7 @@ const AddBookForm = ({ onAddBook, onCancel }) => {
       onAddBook(newBook);
       setTitle("");
       setAuthor("");
-      setGenre(""); 
+      setGenre("");
       setCondition("");
       setAvailable(true);
     }
@@ -66,7 +66,9 @@ const AddBookForm = ({ onAddBook, onCancel }) => {
           style={styles.input}
           required
         >
-          <option value="" disabled>Select Genre</option>
+          <option value="" disabled>
+            Select Genre
+          </option>
           <option value="fiction">Fiction</option>
           <option value="comedy">Comedy</option>
           <option value="scifi">Sci-Fi</option>
